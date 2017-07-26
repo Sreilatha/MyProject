@@ -1,0 +1,48 @@
+package com.srilatha;
+
+import java.util.ArrayList;
+
+/**
+ * Created by Srilatha on 7/24/2017.
+ */
+public class Branch {
+    private String name;
+    private ArrayList<Customer> customers;
+
+public Branch(String name) {
+    this.name = name;
+    this.customers = new ArrayList<Customer>();
+}
+public String getName(){
+    return name;
+}
+public ArrayList<Customer> getCustomers(){
+    return customers;
+}
+public boolean newCustomerName(String customerName,double initialAmount){
+    if(findCustomer(customerName)==null){
+        this.customers.add(new Customer(customerName,initialAmount));
+        return true;
+    }
+    return false;
+}
+public boolean addCustomerTransactions(String customerName,double amount){
+    Customer existingCustomer=findCustomer(customerName);
+    if(existingCustomer!=null){
+        existingCustomer.addTransactions(amount);
+        return true;
+    }
+    return false;
+}
+public Customer findCustomer(String customerName) {
+    for (int i = 0; i < this.customers.size(); i++) {
+        Customer checkedCustomer = this.customers.get(i);
+        if (checkedCustomer.getName().equals(customerName)) {
+            return this.customers.get(i);
+        }
+    }
+    return null;
+}
+}
+
+
