@@ -11,6 +11,7 @@ public class LinkedList {
     }
 
     public boolean isEmpty() {
+
         return (first == null);
     }
 
@@ -31,7 +32,7 @@ public class LinkedList {
         System.out.println("List(first------->last)");
         Node current = first;
         while (current != null) {
-            current.printData();
+            current.displayNode();
             current = current.next;
         }
     }
