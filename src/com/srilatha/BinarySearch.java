@@ -7,6 +7,7 @@ public class BinarySearch {
 }
 //static method//
     // test comment
+    // third comment
 public static int binarySearch(int[] a,int x){
     int p=0;
     int r=a.length-1;
