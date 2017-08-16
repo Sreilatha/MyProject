@@ -5,6 +5,7 @@ public class BinarySearch {
         System.out.println(binarySearch(new int[]{9,11,15,18,22,31},18));
 
 }
+//static method//
 public static int binarySearch(int[] a,int x){
     int p=0;
     int r=a.length-1;
