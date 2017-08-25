@@ -1,10 +1,36 @@
 package com.srilatha;
-
 public class BinarySearchTree {
     public Node1 root;
 
     public BinarySearchTree() {
         this.root = null;
+    }
+    public void insert(int data){
+        Node1 node3=new Node1(data);
+        if(root==null){
+            root=node3;
+        return;
+        }
+        Node1 present=root;
+        Node1 parent=null;
+        while(true){
+            parent=present;
+            if(data<present.data){
+                present=present.left;
+                if(present==null){
+                    parent.left=node3;
+                    return;
+
+                }
+            }else{
+                present=present.right;
+                if(present==null){
+                    parent.right=node3;
+                    return;
+                }
+            }
+        }
+
     }
 
     public static boolean search(int data, Node1 current) {
@@ -29,6 +55,13 @@ public class BinarySearchTree {
         node1.left=node;
         node1.right=node2;
         System.out.println(search(0,node1));
+        BinarySearchTree bst=new BinarySearchTree();
+        bst.insert(5);
+        bst.insert(8);
+        bst.insert(11);
+        bst.insert(2);
+        System.out.println(search(8,node1));
+
 
     }
 }
