@@ -5,26 +5,27 @@ public class BinarySearchTree {
     public BinarySearchTree() {
         this.root = null;
     }
+
     public void insert(int data){
         Node1 node3=new Node1(data);
         if(root==null){
             root=node3;
         return;
         }
-        Node1 present=root;
+        Node1 current=root;
         Node1 parent=null;
         while(true){
-            parent=present;
-            if(data<present.data){
-                present=present.left;
-                if(present==null){
+            parent=current;
+            if(data<current.data){
+                current=current.left;
+                if(current==null){
                     parent.left=node3;
                     return;
 
                 }
-            }else{
-                present=present.right;
-                if(present==null){
+            }else if(data>current.data){
+                current=current.right;
+                if(current==null){
                     parent.right=node3;
                     return;
                 }
