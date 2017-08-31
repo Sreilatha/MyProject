@@ -33,9 +33,75 @@ public class BinarySearchTree {
         }
 
     }
-//    public boolean delete(int data){
-//
-//    }
+    public boolean delete(int data) {
+        Node1 parent = root;
+        Node1 current = root;
+        boolean isleft = false;
+        while (current.data != data) {
+            parent = current;
+            if (current.data > data) {
+                isleft = true;
+                current = current.left;
+
+            } else {
+                isleft = false;
+                current = current.right;
+
+            }
+            if (current == null) {
+                return false;
+            }
+        }
+        if (current.left == null && current.right == null) {
+            if (current == root) {
+                root = null;
+            }
+                if (isleft == true) {
+                    parent.left = null;
+
+                } else {
+                    parent.right = null;
+                }
+            } else if (current.left == null) {
+                if (current == root) {
+                    root = current.right;
+                } else if (isleft) {
+                    parent.left = current.right;
+                } else {
+                    parent.right = current.right;
+                }
+            } else if (current.left != null && current.right != null) {
+                Node1 successor = getSuccessor(current);
+                if (current == root) {
+                    root = successor;
+
+                } else if (isleft) {
+                    parent.left = successor;
+
+                } else {
+                    parent.right = successor;
+                }
+                successor.left = current.left;
+            }
+
+        return true;
+
+    }
+ public Node1 getSuccessor(Node1 deleteNode){
+        Node1 successor=null;
+        Node1 successorParent=null;
+        Node1 current=deleteNode.right;
+        while(current!=null) {
+            successorParent = successor;
+            successor = current;
+            current = current.left;
+        }
+        if(successor!=deleteNode.right){
+            successorParent.left=successor.right;
+            successor.right=deleteNode.right;
+        }
+        return successor;
+ }
 
     public static boolean search(int data, Node1 current) {
         if (current == null) {
@@ -64,6 +130,10 @@ public class BinarySearchTree {
         bst.insert(8);
         bst.insert(11);
         bst.insert(2);
+        bst.insert(15);
+        bst.insert(14);
+        bst.insert(18);
+        System.out.println("delete node with two children" +" "+  bst.delete(15));
         System.out.println(search(8,node1));
 
 
