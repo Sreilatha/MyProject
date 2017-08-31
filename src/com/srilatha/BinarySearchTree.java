@@ -33,6 +33,9 @@ public class BinarySearchTree {
         }
 
     }
+//    public boolean delete(int data){
+//
+//    }
 
     public static boolean search(int data, Node1 current) {
         if (current == null) {
